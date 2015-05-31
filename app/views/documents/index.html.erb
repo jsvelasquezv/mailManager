@@ -1,0 +1,46 @@
+<div class="row">
+	<div class="col-md-10 col-md-offset-1">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<div class="panel-header">
+					<h3>Documentos</h3>
+					<%= form_tag documents_path, :method => 'get' do %>
+						<div class="form-group">
+							<%= text_field_tag " ", nil , :class => 'form-control', placeholder: 'Ingresa un termino para buscar' %>
+						</div>
+						<div class="form-group">
+							<%= submit_tag 'Buscar', :name => nil, class: 'btn btn-primary' %>
+						</div>
+					<% end %>
+				</div>
+			</div>
+			<div class="panel-body">
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th>ID</th>
+							<th>Nombre</th>
+							<th>Fecha Recibido</th>
+							<th>Remitente</th>
+							<th>Estado</th>
+							<th>Categoria</th>
+						</tr>
+					</thead>
+					<tbody>
+					<% @documents.each do |document| %>
+						<tr>
+							<td><%= document.number %></td>
+							<td><%= document.nombre %></td>
+							<td><%= document.remitente %></td>
+							<td><%= document.estado %></td>
+							<td><%= document.categoria %></td>
+							<td><%= link_to "Ver mas", document %></td>
+							<td><%= link_to "Entregar/Archivar", edit_document_path(document) %></td>
+						</tr>
+					<% end %>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

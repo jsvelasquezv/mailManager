@@ -1,0 +1,33 @@
+<div class="row">
+	<div class="col-md-6 col-md-offset-3">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<div class="panel-header">
+					<h3>Documento:</h3>
+					<%= @document.number %>
+				</div>
+			</div>
+			<div class="panel-body">
+				<div class="row">
+					<div class="col-md-6">
+						<h4>Nombre:</h4>
+						<%= @document.nombre %>
+
+						<h4>Fecha Recibido:</h4>
+						<%= @document.fechaRecibido %>
+
+						<h4>Fecha de entrega:</h4>
+						<%= @document.fechaEntrega %>
+
+						<h4>Recibido por:</h4>
+						<%= @document.recibidoPor %>
+					</div>
+					<div class="col-md-6">
+						<h4>Observaciones:</h4>
+						<%= @document.observaciones %>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

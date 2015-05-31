@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  number: 
+  nombre: MyString
+  fechaRecibido: MyString
+  remitente: MyString
+  estado: MyString
+  categoria: MyString
+  observaciones: MyText
+  fechaEntrega: MyString
+  recibidoPor: MyString
+  fechaArchivo: MyString
+
+two:
+  number: 
+  nombre: MyString
+  fechaRecibido: MyString
+  remitente: MyString
+  estado: MyString
+  categoria: MyString
+  observaciones: MyText
+  fechaEntrega: MyString
+  recibidoPor: MyString
+  fechaArchivo: MyString
