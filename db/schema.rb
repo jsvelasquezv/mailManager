@@ -11,10 +11,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150529044235) do
+ActiveRecord::Schema.define(version: 20150601003829) do
 
   create_table "documents", force: :cascade do |t|
-    t.integer  "number"
     t.string   "nombre"
     t.string   "fechaRecibido"
     t.string   "remitente"
@@ -26,6 +25,7 @@ ActiveRecord::Schema.define(version: 20150529044235) do
     t.string   "fechaArchivo"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
+    t.string   "responsable"
   end
 
 end

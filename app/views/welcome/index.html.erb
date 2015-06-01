@@ -1,0 +1,14 @@
+<div class="row">	
+	
+		<%= image_tag image_path('saludcoop.png'), class:'img-rounded center-block' %>
+	
+	
+		<%= form_tag documents_path, :method => 'get', class:'form-inline center' do %>
+			<%= text_field_tag :search, nil , :class => 'form-control', placeholder: 'Ingresa un ID o una Fecha' %>
+			<%= submit_tag 'Buscar', :name => nil, class: 'btn btn-primary' %>
+			<%= link_to 'Todos los Documentos', documents_path, class: 'btn btn-primary'%>
+		<% end %>
+	
+</div>
+
+

@@ -1,29 +1,35 @@
 <div class="panel panel-default col-md-8 col-md-offset-2">
 	<div class="panel-heading">
 		<div class="panel-header">
-			<h3><%= @document.nombre %> - <%= @document.number %> </h3>
+			<h3><%= @document.nombre %> - <%= @document.id %> </h3>
 		</div>
+	</div>
+	<div class="panel-body">
+		<% if @document.errors.any? %>
+	    	<div class="alert alert-warning alert-dismissible" role="alert">
+	    	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	    	<h2>No se pudo editar el documento :</h2>
+	      		<ul>
+	      			<% @document.errors.full_messages.each do |message| %>
+	        			<li><%= message %></li>
+	      			<% end %>
+	     		</ul>
+	    	</div>
+		<% end %>	
 	</div>
 	<div class="panel-body">
 		<%= form_for(@document) do |f| %>
 		<div class="row">
 			<div class="col-md-10 col-md-offset-1">	
-				<% if @document.errors.any? %>
-		    		<div class="alert alert-warning alert-dismissible" role="alert">
-		    		 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-		      			<h2>No se pudo editar el documento :</h2>
-		      			<ul>
-		      			<% @document.errors.full_messages.each do |message| %>
-		        			<li><%= message %></li>
-		      			<% end %>
-		      			</ul>
-		    		</div>
-		  		<% end %>	
 				<div class="panel panel-default">
 					<div class="panel-body">
 						<div class="form-group">
-							<%= f.label :fechaEntrega, class: 'control-label' %>
-							<%= f.text_field :fechaEntrega, class: 'form-control' %>
+							<%= f.label 'Fecha de Entrega', class: 'control-label' %>
+							<%= f.text_field :fechaEntrega, 'data-behaviour' => 'datepicker', class: 'form-control' %>
+						</div>
+						<div class="form-group">
+							<%= f.label :responsable, class: 'control-label' %>
+							<%= f.text_field :responsable, class: 'form-control' %>
 						</div>
 						<div class="form-group">
 							<%= f.submit :Entregar, class: 'btn btn-primary' %>
@@ -36,22 +42,11 @@
 		<%= form_for(@document) do |f| %>
 		<div class="row">
 			<div class="col-md-10 col-md-offset-1">	
-				<% if @document.errors.any? %>
-		    		<div class="alert alert-warning alert-dismissible" role="alert">
-		    		 <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-		      			<h2>No se pudo editar el documento :</h2>
-		      			<ul>
-		      			<% @document.errors.full_messages.each do |message| %>
-		        			<li><%= message %></li>
-		      			<% end %>
-		      			</ul>
-		    		</div>
-		  		<% end %>	
 				<div class="panel panel-default">
 					<div class="panel-body">
 						<div class="form-group">
-							<%= f.label :fechaRecibido, class: 'control-label' %>
-							<%= f.text_field :fechaRecibido, class: 'form-control' %>
+							<%= f.label "Fecha de Archivo", class: 'control-label' %>
+							<%= f.text_field :fechaArchivo, 'data-behaviour' => 'datepicker', class: 'form-control' %>
 						</div>
 						<div class="form-group">
 							<%= f.submit :Archivar, class: 'btn btn-primary' %>

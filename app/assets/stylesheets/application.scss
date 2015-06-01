@@ -10,6 +10,7 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require bootstrap-datepicker
  *= require_tree .
  *= require_self
  */
@@ -21,3 +22,20 @@
 	width : 100%;
 }
  */
+
+// .bg {
+//   background: url("/assets/images/saludcoop.jpg") no-repeat center center;
+//   position: fixed;
+//   width: 100%;
+//   height: 350px; /*same height as jumbotron */
+//   top:0;
+//   left:0;
+//   z-index: -1;
+// }
+
+.center {
+    text-align:center;
+}
+.center form {
+    display:inline-block;
+}

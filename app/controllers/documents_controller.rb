@@ -1,5 +1,8 @@
 class DocumentsController < ApplicationController
 
+	add_breadcrumb "Inicio", :root_path	
+	add_breadcrumb "Documentos", :documents_path
+
 	def index
 		@documents = Document.all
 		if params[:search]
@@ -11,10 +14,12 @@ class DocumentsController < ApplicationController
 
 	def show
 		@document = Document.find(params[:id])
+		add_breadcrumb @document.nombre, document_path(@document)
 	end
 
 	def new
 		@document = Document.new
+		add_breadcrumb "Radicar"
 	end
 
 	def create
@@ -28,10 +33,14 @@ class DocumentsController < ApplicationController
 
 	def edit
 		@document = Document.find(params[:id])	
+		add_breadcrumb "Entregar-Archivar"
 	end
 
 	def update
 		@document = Document.find(params[:id])
+		if params[:fechaArchivo] != ""
+			@document.estado = "Archivado"
+		end			
 		if @document.update_attributes(document_params)
 			redirect_to @document, notice: "Actualizado Correctamente"
 		else
@@ -42,9 +51,9 @@ class DocumentsController < ApplicationController
 	private
 
 	def document_params
-		params.require(:document).permit(:number, :nombre, :fechaRecibido,
+		params.require(:document).permit(:nombre, :fechaRecibido,
 			:remitente, :estado, :categoria, :observaciones, :fechaEntrega,
-			:recibidoPor, :fechaArchivo)
+			:recibidoPor, :fechaArchivo, :responsable, :search)
 	end
 
 end

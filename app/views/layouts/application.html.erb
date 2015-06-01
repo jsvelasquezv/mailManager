@@ -20,7 +20,7 @@
 								<span class="icon-bar"></span>
 								<span class="icon-bar"></span>
 							</button>
-							<%= link_to 'Documentos' ,root_path, class: 'navbar-brand'%>
+							<%= link_to 'Documentos' ,documents_path, class: 'navbar-brand'%>
 						</div>
 
 						<!-- Collect the nav links, forms, and other content for toggling -->
@@ -33,12 +33,20 @@
 				</nav>
 			</div>
 		</div>
+		<% if request.env['PATH_INFO'] != '/' %>
+			<div class="row">
+				<div class="col-md-10 col-md-offset-1">				
+	      			<ol class="breadcrumb">
+	         			<%= render_breadcrumbs :tag => :li,  :separator => "" %>
+	      			</ol>    			
+				</div>
+			</div>
+		<% end %>
 		<div class="row">
-			<div class="col-md-12">
-				<%= yield %>
+			<div class="col-md-10 col-md-offset-1">				
+         		<%= yield %>
 			</div>
 		</div>
 	</div>
-
 </body>
 </html>
