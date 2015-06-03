@@ -17,12 +17,24 @@
 # This would use the information in config/locales/es.yml.
 #
 # To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
+# available at http://guides.rubyonrails.org/i18n.html.activerecord:
 
-en:
-  hello: "Hello world"
+es:
   activerecord:
    models:
     document:
+     one: "Documento"
+     other: "Documentos"
      attributes:
-      fechaRecibido:"Fecha de Recibo"
+      fechaRecibido: "fecha de recibo"
+   errors:
+    models:
+     document:
+      attributes:
+       nombre:
+        blank: "obligatorio"
+        too_short: "muy corto"
+       fechaRecibido:
+        blank: "obligatorio"
+       remitente:
+        blank: "obligatorio"

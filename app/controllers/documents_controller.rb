@@ -4,7 +4,7 @@ class DocumentsController < ApplicationController
 	add_breadcrumb "Documentos", :documents_path
 
 	def index
-		@documents = Document.all
+		#@documents = Document.all
 		if params[:search]
 			@documents = Document.search(params[:search]).order("created_at DESC")
 		else
